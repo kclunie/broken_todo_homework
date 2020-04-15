@@ -4,11 +4,13 @@ describe CompletedItemsCsvExporter do
   let(:project_title) { 'Awesome Project' }
   let(:updated_date) { Date.current }
   let(:action) { 'do something' }
+  let(:created_at) { 'Date Added'}
   let(:item1) do
     instance_double(Item,
                     :project_title => project_title,
                     :updated_at => updated_date,
-                    :action => action)
+                    :action => action,
+                    :created_at => created_at)
   end
   let(:item_relation) { [item1] }
   let(:io_object) do
@@ -34,7 +36,7 @@ describe CompletedItemsCsvExporter do
   end
 
   describe '#export!' do
-    let(:header) { "Project Title,Action,Date Completed\n" }
+    let(:header) { "Project Title,Action,Date Completed,Date Added\n" }
 
     it 'writes header' do
       expect(io_object).to receive(:<<).with(header)
@@ -43,7 +45,7 @@ describe CompletedItemsCsvExporter do
 
     it 'writes expected completed item lines to file' do
       expect(io_object).to receive(:<<).with(
-        "#{project_title},#{action},#{updated_date}\n"
+        "#{project_title},#{action},#{updated_date},#{created_at}\n"
       )
       exporter.export!
     end

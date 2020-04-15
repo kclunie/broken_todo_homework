@@ -16,11 +16,11 @@ For this homework, spend as much time as you need or want, but keep in mind that
 
 BUGS
 
-- (!!) Creating todo items is currently broken
+-X (!!) Creating todo items is currently broken
 
-- (!) Projects with the same title should not be allowed
+-X (!) Projects with the same title should not be allowed
 
-- () When the option to clear completed items is clicked and there are no
+-X () When the option to clear completed items is clicked and there are no
   completed items the message should not say "Completed items were successfully
   cleared." but instead "There are no completed items for this project."
 
