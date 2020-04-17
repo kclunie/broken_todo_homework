@@ -1,0 +1,10 @@
+<h2>Create an Item</h2>
+<%= form_for(@item) do |f|%>
+    <%= f.hidden_field :project_id, :value => @project.id %>
+
+    <%= f.label :action %>
+    <%= f.text_field :action %>
+
+    <br>
+    <%= f.submit 'Add an item' %>
+    <% end %>
