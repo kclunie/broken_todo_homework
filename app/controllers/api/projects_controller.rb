@@ -5,13 +5,15 @@ class Api::ProjectsController < ApplicationController
         respond_to do |f|
             f.html {render :index}
             f.json {render json: @projects}
-        end
-       # render json: @projects   
+        end  
     end
 
     def show
         @project = Project.find_by(id: params[:id])
-        render json: @project
+        respond_to do |f|
+            f.html {render :show}
+            f.json {render json: @project}
+        end
     end
     
     def new
