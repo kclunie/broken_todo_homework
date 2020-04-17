@@ -1,0 +1,11 @@
+<% @projects.each do |f| %>
+    
+    <div id="<%=f.id%>" >
+    <li><%= link_to "#{f.title}" " - Click for details!", api_project_path(f), class: "project-show-link" %></li>
+    <li><%= f.title %></li>
+    <li><%= link_to 'Destroy', project_path(f),
+                method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <br>
+    </div>
+    <% end %>
+    </div>
