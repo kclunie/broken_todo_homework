@@ -19,14 +19,15 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, form {
   padding: 0;
   line-height: 18px;
 }
-p, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 18px;
 }
 /* end reset */
 
 /* font stacks */
 body {
-    font-family: Baskerville, 'Times New Roman', Times, serif;
+    // font-family: Baskerville, 'Times New Roman', Times, serif;
+    font-family: Georgia, Times, 'Times New Roman', serif;
 }
 h1, h2, h3, h4, h5 {
   font-family: Georgia, Times, 'Times New Roman', serif;
@@ -42,15 +43,16 @@ body {
 nav {
   li {
     list-style: none;
+    font-weight: bold;
   }
 }
 
 header {
-  height: 108px;
+  height: 98px;
   width: 100%;
 
-  background-color: #eee;
-  border: 1px solid #ccc;
+  background-color: rgb(240, 146, 219);
+  border: 2px solid rgb(8, 8, 8);
 
   h1 {
     font-size: 32px;
@@ -67,7 +69,7 @@ header {
   li {
     float: left;
     display: inline;
-    width: 145px;
+    width: 100px;
     text-align: center;
     height: 25%;
     a {
@@ -83,7 +85,7 @@ header {
 }
 
 #main {
-  border: 1px solid #ccc;
+  border: 2px solid rgb(7, 7, 7);
   margin-top: 9px;
   margin-bottom: 9px;
   width: 863px;
@@ -100,12 +102,12 @@ header {
     background-color: #ffa;
     border: 1px solid red;
   }
-  ul {
+  ol {
     width: 70%;
     margin-left: 129px;
   }
   li {
-    list-style: none;
+    // list-style: none;
     padding: 3px;
     border-radius: 5px;
     margin: 3px 3px 12px 3px;
