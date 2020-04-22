@@ -1,6 +1,6 @@
 <h2>Projects</h2>
-
-<ul>
+<br>
+<ol>
   <% if @projects.empty? %>
   <li>No projects.</li>
   <% end %>
@@ -8,11 +8,14 @@
 <li>
   <%= link_to project.title,  project_path(project) %>
   <span>
-    <%= link_to 'Destroy', project,
+    <%= link_to '-Destroy', project,
                 method: :delete, data: { confirm: 'Are you sure?' } %>
   </span>
+  <span>
+  <%= link_to 'Edit',  edit_project_path(project) %>
+</span>
 </li>
 <% end %>
-</ul>
+</ol>
 
-<%= link_to 'New Project', new_project_path %>
+
