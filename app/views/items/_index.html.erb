@@ -1,4 +1,4 @@
-<ul>
+<ol>
   <% if @project.items.empty? %>
   <li>No items.</li>
   <% end %>
@@ -14,7 +14,7 @@
     <% end %>
   </li>
 <% end %>
-</ul>
+</ol>
 
 <%= link_to 'New Item', new_project_item_path(project) %>
 <%= link_to 'Clear Completed Items', clear_project_path(project),
