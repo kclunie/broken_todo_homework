@@ -16,7 +16,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :action %><br>
+  <br>
+    <h3>Item <%= f.label :action %>:</h3>
     <%= f.text_field :action, :size => "80" %>
   </div>
   <div class="field">
@@ -27,3 +28,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+<br>
+<%= link_to 'Home', projects_path %>
