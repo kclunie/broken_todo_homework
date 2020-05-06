@@ -1,7 +1,37 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
+	console.log( "ready!" );
+	listenForClick()
     listenForSubmitForm()
 });
+
+function listenForClick() {
+	$('button#events-data').on('click', function (event) {
+		event.preventDefault()
+		console.log("clicking projects show button")
+		getEvents()
+	})
+}
+
+function getEvents() {
+	console.log("in the getevents function")
+	$.ajax({
+		url: 'http://localhost:3000/api/projects',
+		method: 'get',
+		dataType: 'json'
+	}).done(function (data){
+
+			console.log("the data is: ", data)
+			data.map(event => {
+				const newEvent = new Project(event)
+				events.push(newEvent)
+				const newEventHtml = newEvent.projectHTML()
+				document.getElementById('ajax-events').innerHTML += newEventHtml
+				console.log(events)
+			})
+		})
+	}
+
+	const events = []
 
 class Project {
 	constructor(obj) {
