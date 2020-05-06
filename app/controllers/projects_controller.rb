@@ -16,16 +16,18 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
 
     respond_to do |format|
+      @project = Project.new(project_params)
       if @project.save
         format.html { redirect_to project_path(@project),
                       :notice => 'Project was successfully created.' }
       else
-        format.html { render :action => 'new' }
+        format.html { render :action => 'new',
+                      :notice => 'Project was not successfully created.' }
       end
     end
+    #byebug
   end
 
   def update
@@ -55,7 +57,7 @@ class ProjectsController < ApplicationController
       else
         @project.items.complete.destroy_all
         format.html { redirect_to project_path(@project),
-                    :notice => 'Completed items were successfully cleared..' }
+                    :notice => 'Completed items were successfully cleared.' }
       end
     end
   end
