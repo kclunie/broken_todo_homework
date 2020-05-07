@@ -48,11 +48,11 @@ nav {
 }
 
 header {
-  height: 98px;
+  height: 108px;
   width: 100%;
 
   background-color: rgb(240, 146, 219);
-  border: 2px solid rgb(8, 8, 8);
+  border: 4px solid rgb(8, 8, 8);
 
   h1 {
     font-size: 32px;
@@ -63,7 +63,7 @@ header {
     padding-left: 36px;
   }
   ul {
-    margin-top: 36px;
+    margin-top: 26px;
     width: 594px;
   }
   li {
@@ -71,7 +71,7 @@ header {
     display: inline;
     width: 100px;
     text-align: center;
-    height: 25%;
+    height: 100%;
     a {
       text-decoration: none;
     }
@@ -85,7 +85,7 @@ header {
 }
 
 #main {
-  border: 2px solid rgb(7, 7, 7);
+  border: 4px solid rgb(7, 7, 7);
   margin-top: 9px;
   margin-bottom: 9px;
   width: 863px;
