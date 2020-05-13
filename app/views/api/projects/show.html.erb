@@ -7,7 +7,7 @@
   <li>No items.</li>
   <% end %>
 <% @project.items.each do |item| %>
-  <li class="<%= "#{item.done? ? 'done' : 'not-done'}" %>">
+  <ol class="<%= "#{item.done? ? 'done' : 'not-done'}" %>">
     <%= link_to item.action, edit_project_item_path(@project, item) %>
     <% unless item.done? %>
       <%= button_to 'Done',
@@ -16,7 +16,7 @@
               :item => { :done => true } },
             { :method => :patch } %>
     <% end %>
-  </li>
+  </ol>
 <% end %>
 </ul>
 
