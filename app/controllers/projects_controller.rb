@@ -50,16 +50,16 @@ class ProjectsController < ApplicationController
   end
 
   def clear
-    respond_to do |format|
-      if @project.items.complete == []
-        format.html { redirect_to project_path(@project),
-                    :notice => 'There are no completed items for this project.' }
-      else
+    if @project.items.complete == []
+        statement = 'There are no completed items for this project.'
+    else
         @project.items.complete.destroy_all
-        format.html { redirect_to project_path(@project),
-                    :notice => 'Completed items were successfully cleared.' }
-      end
+        statement = 'Completed items were successfully cleared.'
     end
+    respond_to do |format|
+      format.html { redirect_to project_path(@project),
+      :notice => statement }
+      end
   end
 
   # def clear
