@@ -1,6 +1,6 @@
 class Api::ItemsController < ApplicationController
 
-    before_action :set_project
+    before_action :get_project
 
     def index
         @items = Item.all
@@ -27,10 +27,31 @@ class Api::ItemsController < ApplicationController
     def create
     end
 
+    def edit
+        @item = Item.find(params[:id])
+    end
+    
+    def update
+        @item = @project.items.where("id = #{params[:id]}").first
+    
+        respond_to do |format|
+          if @item.update(item_params)
+            format.html { redirect_to project_path(@project),
+                          :notice => 'Item was successfully updated.' }
+          else
+            format.html { render :action => 'edit' }
+          end
+        end
+    end
+
     private
 
-    def set_project
+    def get_project
         @project = Project.find(params[:project_id])
+    end
+
+    def item_params
+        params.require(:item).permit(:action, :done)
     end
 
 end
