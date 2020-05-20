@@ -16,16 +16,33 @@ class Api::ItemsController < ApplicationController
     end
 
     def new
-        @project = Project.find_by(id: params[:project_id])
-        if params[:project_id] && project = Project.find_by_id(params[:project_id])
-            @item = project.items.build 
-        else
-        @item = Item.new
-        end 
-    end
+        @item = @project.items.build
+      end
+    
+      def create
+        @item = @project.items.build(item_params)
+    
+        respond_to do |format|
+          if @item.save
+            format.html { redirect_to api_project_path(@project),
+                          :notice => 'Item was amazingly created.' }
+          else
+            format.html { render :action => 'new' }
+          end
+        end
+      end
 
-    def create
-    end
+    # def new
+    #     @project = Project.find_by(id: params[:project_id])
+    #     if params[:project_id] && project = Project.find_by_id(params[:project_id])
+    #         @item = project.items.build 
+    #     else
+    #     @item = Item.new
+    #     end 
+    # end
+
+    # def create
+    # end
 
     def edit
         @item = Item.find(params[:id])
@@ -36,7 +53,7 @@ class Api::ItemsController < ApplicationController
     
         respond_to do |format|
           if @item.update(item_params)
-            format.html { redirect_to project_path(@project),
+            format.html { redirect_to api_project_path(@project),
                           :notice => 'Item was successfully updated.' }
           else
             format.html { render :action => 'edit' }
