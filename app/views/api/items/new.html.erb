@@ -1,27 +1,10 @@
 <h2>Create an Item</h2>
+
 <%= form_for([@project, @item]) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@item.errors.count, "error") %>
-        prohibited this project from being saved:
-      </h2>
 
-      <ul>
-      <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<br>
-  <div class="field">
     <h3>Item <%= f.label :action %>:</h3>
     <%= f.text_field :action, :size => "80" %>
-  </div>
-  <div class="actions">
+  
     <%= f.submit %>
-  </div>
+  
 <% end %>
-<br>
